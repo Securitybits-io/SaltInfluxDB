@@ -3,9 +3,9 @@ base:
     - packages.bashrc
     - packages.requirements
 
-  'grafana':
-    - vms.grafana
+  # 'grafana':
+  #   - vms.grafana
   'influxdb':
     - vms.influxdb
-  'telegraf':
-    - vms.telegraf
+  # 'telegraf':
+  #   - vms.telegraf
