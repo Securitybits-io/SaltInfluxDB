@@ -7,5 +7,5 @@ base:
   #   - vms.grafana
   'influxdb':
     - vms.influxdb
-  # 'telegraf':
-  #   - vms.telegraf
+  'telegraf':
+    - vms.telegraf

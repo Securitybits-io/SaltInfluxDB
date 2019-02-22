@@ -21,19 +21,16 @@ influxdb:
 
 influxdb_configuration:
   influxdb_database.present:
-    - name: example
-    - name: example2
+    - name: ipmi
+    - retry:
+      - attempts: 3
+      - interval: 5
 
-set the influxdb retention policy on example:
+influxdb_retention_policy_ipmi:
    influxdb_retention_policy.present:
-       - name: example
-       - database: example
-       - duration: 93d
-       - replication: 1
-
-set the influxdb retention policy on example2:
-   influxdb_retention_policy.present:
-       - name: example2
-       - database: example2
-       - duration: 93d
-       - replication: 1
+    - name: ipmi_rp
+    - database: ipmi
+    - duration: 93d
+    - replication: 1
+    - require:
+      - influxdb_configuration
