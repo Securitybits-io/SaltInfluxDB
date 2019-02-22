@@ -12,3 +12,10 @@ install_influxdb:
     - name: influxdb
     - require:
       - pkgrepo: add_influx_repo
+
+install_python-influxdb:
+  pkg.installed:
+    - pkgs:
+      - python-influxdb
+    - require:
+      - pkg: influxdb

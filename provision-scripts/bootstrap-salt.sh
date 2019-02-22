@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 hostname salt
 
-#echo deb http://ppa.launchpad.net/saltstack/salt/ubuntu `lsb_release -sc` main | sudo tee /etc/apt/sources.list.d/saltstack.list
-#wget -q -O- "http://keyserver.ubuntu.com:11371/pks/lookup?op=get&search=0x4759FA960E27C0A6" | sudo apt-key add -
+wget -O - https://repo.saltstack.com/apt/ubuntu/18.04/amd64/latest/SALTSTACK-GPG-KEY.pub | sudo apt-key add -
+echo "deb http://repo.saltstack.com/apt/ubuntu/18.04/amd64/latest bionic main" | sudo tee /etc/apt/sources.list.d/saltstack.list
+
 apt-get update
-apt-get install salt-master salt-minion salt-ssh  -y
+apt-get install python salt-master salt-minion salt-ssh  -y
+
 cp /vagrant/provision-scripts/deploy-file/master /etc/salt/master
 cp /vagrant/provision-scripts/deploy-file/roster /etc/salt/roster
 cp /vagrant/provision-scripts/deploy-file/id_rsa.salt /root/.ssh/id_rsa.salt
