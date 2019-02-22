@@ -19,15 +19,21 @@ influxdb:
     - watch:
       - file: /etc/influxdb/influxdb.conf
 
-influx-db-test:
+influxdb_configuration:
   influxdb_database.present:
     - name: example
-    - host: localhost
-    - port: 8086
+    - name: example2
 
-# influxdb:
-#   server:
-#     database:
-#       mydb1:
-#         enabled: true
-#         name: mydb1
+set the influxdb retention policy on example:
+   influxdb_retention_policy.present:
+       - name: example
+       - database: example
+       - duration: 93d
+       - replication: 1
+
+set the influxdb retention policy on example2:
+   influxdb_retention_policy.present:
+       - name: example2
+       - database: example2
+       - duration: 93d
+       - replication: 1
