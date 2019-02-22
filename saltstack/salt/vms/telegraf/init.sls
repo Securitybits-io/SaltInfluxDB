@@ -1,6 +1,7 @@
 #Telegraf init.sls
 include:
   - packages.telegraf
+  - packages.ipmitool
 
 ##Server Specific config
 ### TODO: Change me
