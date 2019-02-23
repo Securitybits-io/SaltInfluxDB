@@ -34,3 +34,19 @@ influxdb_retention_policy_ipmi:
     - replication: 1
     - require:
       - influxdb_configuration
+
+influxdb_configuration_telegraf:
+  influxdb_database.present:
+    - name: telegraf
+    - retry:
+      - attempts: 3
+      - interval: 5
+
+influxdb_retention_policy_telegraf:
+   influxdb_retention_policy.present:
+    - name: telegraf_rp
+    - database: telegraf
+    - duration: 93d
+    - replication: 1
+    - require:
+      - influxdb_configuration
