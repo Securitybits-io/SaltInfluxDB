@@ -1,3 +1,4 @@
 *.log
 .git
 .vagrant/
+saltstack/salt/vms/telegraf/deploy_files/telegraf.d/ipmi.conf
